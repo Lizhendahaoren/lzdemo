@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:security="http://www.springframework.org/schema/security" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd  
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!--http://www.tianshouzhi.com/api/tutorials/spring_security_4/261 
+	  http://www.blogjava.net/SpartaYew/archive/2011/06/15/350630.html详细介绍  -->
+	<!-- 不进行拦截的访问 -->
+	<http pattern="/css/**" security="none"></http>
+	<http pattern="/images/**" security="none"></http>
+	<http pattern="/img/**" security="none"></http>
+	<http pattern="/js/**" security="none"></http>
+	<http pattern="/assets/**" security="none"></http>
+	<http pattern="/commons/**" security="none"></http>
+	<http pattern="/login.html*" security="none"></http>
+	
+	<security:http pattern="/share/**" security="none" /> 
+	<global-method-security pre-post-annotations="enabled" />
+	<!-- 取HTTP配置中的authenticationManager 设置alias别名 -->
+	<authentication-manager alias="myAuthenticationManager">
+		<authentication-provider user-service-ref="userDetailsManager">
+			<!-- 加密密码 -->
+			<password-encoder hash="md5" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<!-- 用户详细信息管理：数据源、用户缓存（通过数据库管理用户、角色、权限、资源） -->
+	<beans:bean id="userDetailsManager"
+		class="com.ch.lz.base.security.MyUserDetailsService">
+	</beans:bean>
+
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
+	<beans:bean id="myAccessDecisionManager"
+		class="com.ch.lz.base.security.MyAccessDecisionManagerService" />
+
+
+	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
+	<beans:bean id="mySecurityMetadataSource" init-method="loadResourceDefine"
+		class="com.ch.lz.base.security.MySecurityMetadataSourceService">
+	</beans:bean>
+	 
+	<!-- 1.URL过滤器或方法拦截器：用来拦截URL或者方法资源对其进行验证，其抽象基类为AbstractSecurityInterceptor 
+		2.资源权限获取器：用来取得访问某个URL或者方法所需要的权限，接口为SecurityMetadataSource 3.访问决策器：用来决定用户是否拥有访问权限的关键类，其接口为AccessDecisionManager 
+		调用顺序为：AbstractSecurityInterceptor调用SecurityMetadataSource取得资源的所有可访问权限， 然后再调用AccessDecisionManager来实现决策，确定用户是否有权限访问该资源。 -->
+	<!-- 自定义的filter, 必须包含authenticationManager, accessDecisionManager, securityMetadataSource三个属性 -->
+	<beans:bean id="mySecurityFilter"
+		class="com.ch.lz.base.security.MyFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
+		<beans:property name="accessDecisionManager" ref="myAccessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="mySecurityMetadataSource" />
+	
+	</beans:bean>
+	
+	 
+	<!-- HTTP安全配置 -->
+	<http auto-config="true" access-denied-page="/commons/403.html">
+		<intercept-url pattern="/login.html*" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<form-login login-page="/login.html" default-target-url="/index.html"
+			authentication-failure-url="/login.html?login_error=true" />
+		<logout invalidate-session="true" logout-success-url="/login.html"
+			logout-url="/j_spring_security_logout" />
+		<!-- 增加一个自定义的filter, 放在FILTER_SECURITY_INTERCEPTOR之前, 实现用户, 角色, 权限, 资源的数据库管理 -->
+		<custom-filter ref="mySecurityFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+	</http>
+
+</beans:beans>
