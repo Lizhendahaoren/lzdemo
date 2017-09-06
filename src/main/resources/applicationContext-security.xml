@@ -34,7 +34,7 @@
 
 	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源。 -->
 	<beans:bean id="myAccessDecisionManager"
-		class="com.ch.lz.base.security.MyAccessDecisionManagerService" />
+		class="com.ch.lz.base.security.MyAccessDecisionManager" />
 
 
 	<!-- 资源源数据定义，将所有的资源和权限对应关系建立起来，即定义某一资源可以被哪些角色去访问。 -->
@@ -47,7 +47,7 @@
 		调用顺序为：AbstractSecurityInterceptor调用SecurityMetadataSource取得资源的所有可访问权限， 然后再调用AccessDecisionManager来实现决策，确定用户是否有权限访问该资源。 -->
 	<!-- 自定义的filter, 必须包含authenticationManager, accessDecisionManager, securityMetadataSource三个属性 -->
 	<beans:bean id="mySecurityFilter"
-		class="com.ch.lz.base.security.MyFilterSecurityInterceptor">
+		class="com.ch.lz.base.security.MyFilterAbstractSecurityInterceptor">
 		<beans:property name="authenticationManager" ref="myAuthenticationManager" />
 		<beans:property name="accessDecisionManager" ref="myAccessDecisionManager" />
 		<beans:property name="securityMetadataSource" ref="mySecurityMetadataSource" />

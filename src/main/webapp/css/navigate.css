@@ -1,0 +1,132 @@
+/*----瀹革缚鏅剁�鑹板焻閺嶏拷--begin----*/
+#leftNav{
+	/* width: 225px; */
+	/* border-bottom: 10px solid #DDDDDD; */
+	border-radius: 5px;
+}
+#leftNav.affix{
+	top: 60px;
+}
+.nav-line a{
+	display: inline-block;
+	width: 100%;
+	
+}
+/* .nav-item{
+	height: 46px;
+	line-height: 46px;
+	color: #0080ff;
+	background-color: #f4f4f4;
+	text-decoration: blink;
+	border-top: 1px solid #DCDCDC; 
+	border-bottom: 1px solid #FFFFFF;
+	padding-left: 16px; 
+} */
+
+.nav-line a:hover,
+.nav-line a.active{
+	color: white;
+	text-decoration: blink;
+	cursor: pointer;
+	background-color: #646464;
+}
+.nav-line ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	display: none;
+}
+.nav-line li{
+	padding-left: 33px;
+	border-top: 1px solid #DCDCDC;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.nav-bar{
+	float: right;
+	font-size: 6px;
+	margin: 16px 10px 0 0;
+}
+.nav-tbar{
+	float: left;
+	margin: 15px 8px 0 0;
+}
+.nav-secnt{
+	height: 32px;
+	line-height: 32px;
+	/* color: #666666;
+	background-color: white;  */
+	text-decoration: blink;
+	padding-left: 16px;
+	border-left: 1px dotted #BBBBBB; 
+}
+.nav-tatle{
+	background-color: #323232;
+	color: white;
+	line-height: 35px;
+	text-align: center;
+	font-family:"Microsoft YaHei";
+	font-size: 15px;
+	border-radius: 5px 5px 0 0;
+}
+/*----瀹革缚鏅剁�鑹板焻閺嶏拷--end----*/
+.left-nav-menu{
+	background-color: #C0A16B;
+	width: 300px;
+	height: 1500px;
+}
+.pro-body{
+	min-width: 1200px;
+	padding: 0;
+}
+.ti-header{
+	height: 70px;
+	background-color: #323232;
+}
+ .logoClass{
+	width: 161px;
+	height:70px;
+	float: left;
+	background: url('../image/logo2.png') no-repeat scroll 0% 0% 
+}  
+.ti-info{
+	padding-top: 5px;
+}
+.ti-body{
+	border-left: 208px solid #EEEEEE;
+}
+.ti-nav-menu{
+	position: absolute;
+	left: 2px;
+	margin-top: 20px;
+} 
+.ti-main-frame{
+	margin-top: 2px;
+	display: block;
+	width: 100%;
+	min-height: 700px;
+}
+.ti-main{
+	height: 100%
+}
+.ti-panel{
+	position: absolute;
+	background-color: white;
+	display: none;
+} 
+.panel-head{
+	height: 36px;
+	background-color: #428bca;
+} 
+.ti-body-frame{
+	display: block;
+	width: 100%;
+}
+.ti-return{
+	min-width: 60px;
+	margin: 3px 0 0 10px;
+}
+.ti-return span{
+	margin-right: 6px;
+}

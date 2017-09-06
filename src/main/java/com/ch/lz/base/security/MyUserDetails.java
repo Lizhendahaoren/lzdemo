@@ -11,10 +11,10 @@ public class MyUserDetails implements UserDetails {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	//他的权限
+
+	// 他的角色
 	private List<GrantedAuthority> authorities;
-	
+
 	private String password;
 	private String username;
 	private boolean accountNonExpired;
@@ -25,7 +25,7 @@ public class MyUserDetails implements UserDetails {
 
 	/**
 	 * 未处理字段-默认值
-	 * */
+	 */
 	public MyUserDetails() {
 		accountNonExpired = true;
 		accountNonLocked = true;

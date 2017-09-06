@@ -17,29 +17,24 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * 系统角色实体.
  */
 @Entity
-@Table(name="tb_cms_role")
+@Table(name = "tb_cms_role")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class XaCmsRole implements Serializable{
-	
+public class XaCmsRole implements Serializable {
+
 	private static final long serialVersionUID = 700235310223571456L;
 
-	
 	/** 角色Id. */
 	private Long roleId;
-	
+
 	/** 角色名称. */
 	private String roleName;
-	
+
 	/** 角色描述 */
 	private String roleDesc;
-	
+
 	/** 状态. */
 	private int status;
-	
 
-	
-	
-	
 	public XaCmsRole(String roleName, String roleDesc) {
 		this.roleName = roleName;
 		this.roleDesc = roleDesc;
@@ -49,8 +44,8 @@ public class XaCmsRole implements Serializable{
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="role_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "role_id")
 	public Long getRoleId() {
 		return roleId;
 	}
@@ -59,7 +54,7 @@ public class XaCmsRole implements Serializable{
 		this.roleId = roleId;
 	}
 
-	@Column(name="role_name", nullable=false, length=40)
+	@Column(name = "role_name", nullable = false, length = 40)
 	public String getRoleName() {
 		return roleName;
 	}
@@ -68,7 +63,7 @@ public class XaCmsRole implements Serializable{
 		this.roleName = roleName;
 	}
 
-	@Column(name="status")
+	@Column(name = "status")
 	public int getStatus() {
 		return status;
 	}
@@ -77,7 +72,7 @@ public class XaCmsRole implements Serializable{
 		this.status = status;
 	}
 
-	@Column(name="role_desc")
+	@Column(name = "role_desc")
 	public String getRoleDesc() {
 		return roleDesc;
 	}

@@ -1,0 +1,96 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+#floor-pic {
+	position: relative;
+}
+#floor-control {
+	margin:0px;
+}
+.control-group{
+float:left;
+padding:0px 5px;
+}
+.control-group input {
+	border: 1px solid #000;
+	margin: 0px 5px;
+	width:30px;
+}
+ 
+.point1 {
+	background-color: yellow;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	display: none;
+}
+.point2 {
+	background-color: #FF0000;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+}
+.point3 {
+	background-color: blue;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	display: none;
+}
+.point4 {
+	background-color: green;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+}
+.showXY1, .showXY2, .showXY3, .showXY4 {
+	color: #fff;
+	background-color:red;
+    filter: Alpha(Opacity=50);
+    opacity:0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	padding:2px;
+	font-size:12px;
+	display: none;
+}
+.rect1, .rect2, .rect3, .rect4 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+}
+.rect1 {
+	border-right: 1px dashed yellow;
+	border-bottom: 1px dashed yellow;
+}
+.rect2 {
+	border-right: 1px dashed #FF0000;
+	border-bottom: 1px dashed #FF0000;
+}
+.rect3 {
+	border-right: 1px dashed blue;
+	border-bottom: 1px dashed blue;
+}
+.rect4 {
+	border-right: 1px dashed green;
+	border-bottom: 1px dashed green;
+}

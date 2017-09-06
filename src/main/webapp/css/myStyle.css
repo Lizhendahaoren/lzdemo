@@ -1,0 +1,59 @@
+.select{
+	width: 156px;
+	height: 26px;
+}
+.tab{
+  border:0px solid #0033FF;
+  width:920px;
+  height:auto;
+}
+.tab li{
+  width:150px;
+  height:40px;
+  border:0px solid #0033ff;
+  list-style:none;
+  text-align:right;
+  float:left;
+}
+.textClass{
+  width:300px;
+  height:40px;
+  border:0px solid #0033ff;
+  list-style:none;
+  text-align:left;
+  float:left;
+}
+.textClass{
+  width:500px;
+  height:40px;
+  border:0px solid #0033ff;
+  list-style:none;
+  text-align:left;
+  float:left;
+}
+.tabone{
+  border:0px solid #0033FF;
+  width:920px;
+  height:auto;
+}
+.tabone li{
+  width:150px;
+  height:40px;
+  border:0px solid #0033ff;
+  list-style:none;
+  text-align:right;
+  float:left;
+}
+.tabSelect{
+  border:0px solid #0033FF;
+  width:920px;
+  height:auto;
+}
+.tabSelect li{
+  width:150px;
+  height:40px;
+  border:0px solid #0033ff;
+  list-style:none;
+  text-align:right;
+  float:left;
+}

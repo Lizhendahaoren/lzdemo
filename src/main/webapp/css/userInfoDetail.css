@@ -1,0 +1,85 @@
+.title{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: solid 1px rgb(238,241,245);
+	padding-bottom: 5px;
+}
+.title div{
+	width: 100px;
+	border: solid 1px;
+	text-align: center;
+	border-radius: 5px!important;
+	height: 30px;
+	line-height: 30px;
+	cursor:pointer;
+	color:#FFF
+}
+.title-left{
+	background:blue
+}
+.title-left:hover{
+	background:green;
+}
+.title-right{
+	background:red
+}
+.title-right:hover{
+	background:green;
+}
+.info{
+	display: flex;
+	padding: 24px;
+	border-bottom: solid 1px rgb(238,241,245);
+}
+.info div{
+	width: 50%;
+}
+.infolist{
+	margin-bottom: 20px;
+}
+.right-first{
+	display: flex;
+	width:100%!important;
+}
+.first-left{
+	width:25%!important;
+}
+.right-info{
+	width:100%!important;
+	text-aline:center;
+}
+.sex{
+	margin-bottom: 20px;
+}
+.other{
+	padding-top: 24px;
+}
+.othertitle{
+	display: flex;
+	width: 150px;
+	justify-content:space-between;
+}
+.shangbaobtn{
+	width: 100px;
+	text-align: center;
+	/* border: solid 1px; */
+	border-radius: 6px!important;
+	background:#00ffff
+}
+table{
+	width: 90%!important;
+	margin-left: 5%;
+	margin-top: 10px;
+	border: solid 1px rgb(238,241,245);
+	text-align: center;
+}
+table td{
+	border: solid 1px rgb(238,241,245);
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.shangbao{
+	margin-bottom: 20px;
+}

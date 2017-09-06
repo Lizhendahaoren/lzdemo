@@ -2,10 +2,6 @@ package com.ch.lz.base.entity;
 
 import java.io.Serializable;
 
-
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,50 +18,47 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
  * 系统资源实体.
  */
 @Entity
-@Table(name="tb_cms_resource")
+@Table(name = "tb_cms_resource")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class XaCmsResource   implements Serializable{
+public class XaCmsResource implements Serializable {
 
 	private static final long serialVersionUID = -6716116635654730576L;
-	
-	
+
 	/** 资源Id. */
 	private Long resourceId;
-	
+
 	/** 资源名称. */
 	private String resourceName;
-	
+
 	/** 资源路径. */
 	private String resourceUrl;
-	
+
 	/** 排序号(序号越大，菜单显示越下面). */
 	private int orderNum;
-	
-	/** 显示类型
-	 *  0: 页面级别
-	 *  1：按钮级别 .
-	 *  2:菜单级 */
+
+	/**
+	 * 显示类型 0: 页面级别 1：按钮级别 . 2:菜单级
+	 */
 	private int showType;
-	
+
 	/**
 	 * @Fields parentId : 如果为空，表示一级菜单，不为空，表示为子菜单
 	 */
 	private Long parentId;
-	
+
 	/**
 	 * @Fields status : 资源的状态，1表示可用，0表示不可用或已删除
 	 */
 	private int status;
-	
 
 	/**
 	 * @Fields parentResourceName : 父资源名称
 	 */
 	private String parentResourceName;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="resource_id")
+	@Column(name = "resource_id")
 	public Long getResourceId() {
 		return resourceId;
 	}
@@ -74,7 +67,7 @@ public class XaCmsResource   implements Serializable{
 		this.resourceId = resourceId;
 	}
 
-	@Column(name="resource_name", nullable=false, length=40)
+	@Column(name = "resource_name", nullable = false, length = 40)
 	public String getResourceName() {
 		return resourceName;
 	}
@@ -83,7 +76,7 @@ public class XaCmsResource   implements Serializable{
 		this.resourceName = resourceName;
 	}
 
-	@Column(name="resource_url", nullable=false, length=100)
+	@Column(name = "resource_url", nullable = false, length = 100)
 	public String getResourceUrl() {
 		return resourceUrl;
 	}
@@ -92,7 +85,7 @@ public class XaCmsResource   implements Serializable{
 		this.resourceUrl = resourceUrl;
 	}
 
-	@Column(name="order_num")
+	@Column(name = "order_num")
 	public int getOrderNum() {
 		return orderNum;
 	}
@@ -101,7 +94,7 @@ public class XaCmsResource   implements Serializable{
 		this.orderNum = orderNum;
 	}
 
-	@Column(name="show_type")
+	@Column(name = "show_type")
 	public int getShowType() {
 		return showType;
 	}
@@ -110,7 +103,7 @@ public class XaCmsResource   implements Serializable{
 		this.showType = showType;
 	}
 
-	@Column(name="parent_id")
+	@Column(name = "parent_id")
 	public Long getParentId() {
 		return parentId;
 	}
@@ -119,7 +112,7 @@ public class XaCmsResource   implements Serializable{
 		this.parentId = parentId;
 	}
 
-	@Column(name="status")
+	@Column(name = "status")
 	public int getStatus() {
 		return status;
 	}
@@ -136,6 +129,5 @@ public class XaCmsResource   implements Serializable{
 	public void setParentResourceName(String parentResourceName) {
 		this.parentResourceName = parentResourceName;
 	}
-	
-	
+
 }

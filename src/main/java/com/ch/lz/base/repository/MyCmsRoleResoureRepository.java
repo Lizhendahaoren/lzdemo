@@ -8,6 +8,7 @@ import com.ch.lz.base.entity.XaCmsRoleResource;
 /**
  * 
  * 角色资源持久层
+ * 
  * @author lz
  *
  */

@@ -1,4 +1,5 @@
 package com.ch.lz.base.exception;
+
 /**
  * @Title: PushException.java
  * @Package com.xa3ti.push.exception
@@ -27,6 +28,4 @@ public class PushException extends Exception {
 		super(cause);
 	}
 
-	
 }
-

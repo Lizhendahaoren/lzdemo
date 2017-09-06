@@ -1,0 +1,27 @@
+  
+  
+  
+  
+		1、当Web服务器启动时，通过Web.xml中对于Spring Security的配置，加载过滤器链，那么在加载MyFilterSecurityInterceptor类时，
+		       会注入MyInvocationSecurityMetadataSourceService、MyUserDetailsService、MyAccessDecisionManager类。
+		
+		2、该MyInvocationSecurityMetadataSourceService类在执行时会提取数据库中所有的用户权限，形成权限列表；
+		并循环该权限列表，通过每个权限再从数据库中提取出该权限所对应的资源列表，并将资源（URL）作为key，权限列表作为value，形成Map结构的数据。
+		
+		3、当用户登录时，AuthenticationManager进行响应，通过用户输入的用户名和密码，然后再根据用户定义的密码算法和盐值等进行计算并和数据库比对，
+		当正确时通过验证。此时MyUserDetailsService进行响应，根据用户名从数据库中提取该用户的权限列表，组合成UserDetails供Spring Security使用。
+		
+		 4、当用户点击某个功能时，触发MyAccessDecisionManager类，该类通过decide方法对用户的资源访问进行拦截。
+		用户点击某个功能时，实际上是请求某个URL或Action， 无论.jsp也好，.action或.do也好，在请求时无一例外的表现为URL。
+		还记得第2步时那个Map结构的数据吗？ 若用户点击了"login.action"这个URL之后，那么这个URL就跟那个Map结构的数据中的key对比，若两者相同，
+		则根据该url提取出Map结构的数据中的value来，这说明：若要请求这个URL，必须具有跟这个URL相对应的权限值。这个权限有可能是一个单独的权限，
+		也有可能是一个权限列表，也就是说，一个URL有可能被多种权限访问。
+		
+		 那好，我们在MyAccessDecisionManager类的decide这个方法里，将通过URL取得的权限列表进行循环，然后跟第3步中登录的用户所具有的权限进行比对，
+		  若相同，则表明该用户具有访问该资源的权利。 不大明白吧？  简单地说， 在数据库中我们定义了访问“LOGIN”这个URL必须是具有ROLE_ADMIN权限的人来访问，那么，登录用户恰恰具有该ROLE_ADMIN权限，两者的比对过程中，就能够返回TRUE，可以允许该用户进行访问。就这么简单！
+		
+	           不过在第2步的时候，一定要注意，MyInvocationSecurityMetadataSoruceService类的loadResourceDefine()方法中，
+		形成以URL为key，权限列表为value的Map时，
+		要注意key和Value的对应性，避免Value的不正确对应形成重复，这样会导致没有权限的人也能访问到不该访问到的资源。
+		还有getAttributes()方法，要有 url.indexOf("?")这样的判断，要通过判断对URL特别是Action问号之前的部分进行匹配，
+		防止用户请求的带参数的URL与你数据库中定义的URL不匹配，造成访问拒绝！

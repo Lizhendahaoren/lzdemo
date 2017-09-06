@@ -218,290 +218,300 @@ public class XaConstant {
 		public static final String error = "系统错误!";
 		public static final String object_not_find = "找不到要操作的记录!";
 	}
-	
+
 	/**
 	 * 用户类型
+	 * 
 	 * @author hchen
 	 *
 	 */
-	public static final class userType{
-		//1为新浪微博、2为QQ、3为微信、4：表示系统注册帐户
+	public static final class userType {
+		// 1为新浪微博、2为QQ、3为微信、4：表示系统注册帐户
 		/**
 		 * 新浪用户
 		 */
-		public static final int sina=1;
+		public static final int sina = 1;
 		/**
 		 * QQ用户
 		 */
-		public static final int qq=2;
+		public static final int qq = 2;
 		/**
 		 * 微信用户
 		 */
-		public static final int weixi=3;
+		public static final int weixi = 3;
 		/**
 		 * 系统帐户
 		 */
-		public static final int system=4;
+		public static final int system = 4;
 	}
-	
+
 	/**
 	 * 用户性别
+	 * 
 	 * @author hchen
 	 *
 	 */
-	public static final class userSex{
+	public static final class userSex {
 		/**
 		 * 女性
 		 */
-		public static final int female=1;
+		public static final int female = 1;
 		/**
 		 * 男性
 		 */
-		public static final int male=2;
+		public static final int male = 2;
 	}
+
 	/**
 	 * 用户设备
+	 * 
 	 * @author hchen
 	 *
 	 */
-	public static final class userDevice{
+	public static final class userDevice {
 		/**
 		 * ios设备
 		 */
-		public static final int ios=1;
+		public static final int ios = 1;
 		/**
 		 * android设备
 		 */
-		public static final int android=2;
+		public static final int android = 2;
 		/**
 		 * wap
 		 */
-		public static final int wap=3;
+		public static final int wap = 3;
 	}
-	
+
 	/**
 	 * 价格参数一级分类
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	public static final class priceProperty{
+	public static final class priceProperty {
 		/**
 		 * 
 		 */
-		public static final String material="面料";
+		public static final String material = "面料";
 		/**
 		 * 
 		 */
-		public static final String print="打印";
+		public static final String print = "打印";
 		/**
 		 * 
 		 */
-		public static final String pack="包装";
+		public static final String pack = "包装";
 	}
+
 	/**
 	 * 订单状态
 	 */
-	public static final class orderStatus{
+	public static final class orderStatus {
 		/**
 		 * 待支付
 		 */
-		public static final int notpay=1;
+		public static final int notpay = 1;
 		/**
 		 * 已付款
 		 */
-		public static final int alreadPay=2;
+		public static final int alreadPay = 2;
 		/**
 		 * 制作中
 		 */
-		public static final int work=3;
+		public static final int work = 3;
 		/**
 		 * 发货中
 		 */
-		public static final int send=4;
+		public static final int send = 4;
 		/**
 		 * 已完成
 		 */
-		public static final int complete=5;
+		public static final int complete = 5;
 		/**
 		 * 用户取消
 		 */
-		public static final int userCancle=-1;
+		public static final int userCancle = -1;
 		/**
 		 * 系统退单
 		 */
-		public static final int systemCancle=-2;
+		public static final int systemCancle = -2;
 	}
-	
-	
+
 	/**
 	 * 两个用户之间的关系
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	public static final class isFriends{
+	public static final class isFriends {
 		/**
 		 * 表示当前用户已关注要查看的用户，但是要查看的用户并未关注当前用户
 		 */
-		public static final int attentionOther=1;
+		public static final int attentionOther = 1;
 		/**
 		 * 表示当前用户未关注要查看的用户，但是要查看的用户已关注当前用户
 		 */
-		public static final int attentionSelf=2;
+		public static final int attentionSelf = 2;
 		/**
 		 * 表示当前用户已关注要查看的用户，要查看的用户也已经关注当前用户
 		 */
-		public static final int friends=3;
+		public static final int friends = 3;
 		/**
 		 * 双方都未关注对方
 		 */
-		public static final int strange=2;
+		public static final int strange = 2;
 	}
-	
+
 	/**
 	 * 积分类型
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	public static final class integralType{
+	public static final class integralType {
 		/**
 		 * 创作
 		 */
-		public static final int createProduct=1;
+		public static final int createProduct = 1;
 		/**
 		 * 被评论
 		 */
-		public static final int comment=2;
+		public static final int comment = 2;
 		/**
 		 * 购买作品
 		 */
-		public static final int buyProduct=3;
+		public static final int buyProduct = 3;
 		/**
 		 * 销售作品
 		 */
-		public static final int saleProduct=4;
+		public static final int saleProduct = 4;
 	}
-	
+
 	/**
 	 * 栏目对应的新闻类型
+	 * 
 	 * @author lex
 	 *
 	 */
-	public static final class newsType{
+	public static final class newsType {
 		/**
 		 * 富文本新闻
 		 */
-		public static final int richText=1;
+		public static final int richText = 1;
 		/**
 		 * 视频新闻
 		 */
-		public static final int media=3;
+		public static final int media = 3;
 		/**
 		 * 图片新闻
 		 */
-		public static final int picture=2;
+		public static final int picture = 2;
 		/**
 		 * 杂志新闻
 		 */
-		public static final int magazine=4;
+		public static final int magazine = 4;
 	}
-	
+
 	/**
 	 * 审核状态
+	 * 
 	 * @author lex
 	 *
 	 */
-	public static final class audioStatus{
+	public static final class audioStatus {
 		/**
 		 * 待审核
 		 */
-		public static final int notAudio=0;
+		public static final int notAudio = 0;
 		/**
 		 * 审核通过
 		 */
-		public static final int pass=1;
+		public static final int pass = 1;
 		/**
 		 * 审核未通过
 		 */
-		public static final int notPass=-1;
+		public static final int notPass = -1;
 	}
+
 	/**
 	 * 搜索关键字类型
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	public static final class keyType{
+	public static final class keyType {
 		/**
 		 * 标题
 		 */
-		public static final int newsTitle=1;
+		public static final int newsTitle = 1;
 		/**
 		 * 作者
 		 */
-		public static final int newsAuthor=2;
+		public static final int newsAuthor = 2;
 		/**
 		 * 全部
 		 */
-		public static final int all=3;
+		public static final int all = 3;
 	}
-	
+
 	/**
 	 * 随手拍类型
+	 * 
 	 * @author Administrator
 	 *
 	 */
-	public static final class TakephotoType{
+	public static final class TakephotoType {
 		/**
 		 * 图片
 		 */
-		public static final int pic=1;
+		public static final int pic = 1;
 		/**
 		 * 视频
 		 */
-		public static final int media=2;
-		
+		public static final int media = 2;
+
 	}
-	
-	public static final class PictureType{
-		
+
+	public static final class PictureType {
+
 		/**
 		 * 兼职用户相册
 		 */
-		public static final int album=1;
-		
+		public static final int album = 1;
+
 		/**
 		 * 技能证书
 		 */
-		public static final int skill=2;
+		public static final int skill = 2;
 		/**
 		 * 银行证书
 		 */
-		public static final int bank=3;
-		
-		
-		
+		public static final int bank = 3;
+
 	}
-	
-	
+
 	/**
 	 * 简历投递状态
+	 * 
 	 * @author lex
 	 *
 	 */
-	public static final class deliveryStatus{
-		
+	public static final class deliveryStatus {
+
 		/**
 		 * 简历已成功投递，但还没被查看
 		 */
-		public static final int delivery=0;
+		public static final int delivery = 0;
 		/**
 		 * 简历已被查看
 		 */
-		public static final int alreadySee=1;
-		
+		public static final int alreadySee = 1;
+
 		/**
 		 * 简历被企业用户聘用
 		 */
-		public static final int offer=2;
-		
+		public static final int offer = 2;
+
 	}
 }

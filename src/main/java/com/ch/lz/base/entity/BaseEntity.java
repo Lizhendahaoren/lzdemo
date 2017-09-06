@@ -38,7 +38,7 @@ public abstract class BaseEntity implements Serializable {
 
 	@ApiModelProperty(value = "@Fields createTime : 创建时间")
 	private Long createTime;
-	
+
 	@ApiModelProperty(value = " 创建时间 字符串形式")
 	private String createTimeStr;
 
@@ -47,7 +47,7 @@ public abstract class BaseEntity implements Serializable {
 
 	@ApiModelProperty(value = "@Fields modifyTime : 修改时间")
 	private Long modifyTime;
-	
+
 	@ApiModelProperty(value = "修改时间 字符串")
 	private String modifyTimeStr;
 
@@ -158,7 +158,7 @@ public abstract class BaseEntity implements Serializable {
 	public void setInsertBefore() {
 		this.createTime = (new Date()).getTime();
 		this.createTimeStr = getLongToString((new Date()).getTime());
-		if(status == null){
+		if (status == null) {
 			this.status = XaConstant.Status.valid;
 		}
 		this.modifyTime = (new Date()).getTime();

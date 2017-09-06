@@ -1,13 +1,14 @@
 package com.ch.lz.base.security;
 
-
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.springframework.security.access.AccessDecisionManager;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * AccessdecisionManager在Spring security中是很重要的。
@@ -44,20 +45,34 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
 	@Override
 	public void decide(Authentication arg0, Object arg1, Collection<ConfigAttribute> arg2)
 			throws AccessDeniedException, InsufficientAuthenticationException {
-		// TODO Auto-generated method stub
+		if (arg2 == null) {
+			return;
+		}
+
+		Iterator<ConfigAttribute> iterator = arg2.iterator();
+		while (iterator.hasNext()) {
+			ConfigAttribute configAttribute = iterator.next();
+			String needPermission = configAttribute.getAttribute();
+			// ga 为用户所被赋予的权限。 arg0 为访问相应的资源应该具有的权限。
+			for (GrantedAuthority ga : arg0.getAuthorities()) {
+				if (needPermission.equals(ga.getAuthority())) {
+					return;
+				}
+			}
+		}
+
+		throw new AccessDeniedException("没有权限访问");
 
 	}
 
 	@Override
 	public boolean supports(ConfigAttribute arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

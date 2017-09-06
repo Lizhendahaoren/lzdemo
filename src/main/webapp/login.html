@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>系统登录</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<link href="css/bootstrap-3.2.0/css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-box.css" rel="stylesheet" type="text/css" />
+<link href="css/bootstrap-page.css" rel="stylesheet" type="text/css" />
+<link href="js/validator/jquery.validator.css"	rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js"	type="text/javascript"></script>
+<script src="js/jsviews.js" type="text/javascript" ></script>
+<script src="js/base.js" type="text/javascript"></script>
+<script src="js/validator/jquery.validator.js"	type="text/javascript"></script>
+<script src="js/validator/local/zh_CN.js"	type="text/javascript"></script>
+<script src="js/jquery.cookie.js"	type="text/javascript"></script>	
+
+ <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link href="css/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="css/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="css/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="css/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="css/assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+        <!-- END PAGE LEVEL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <!-- END THEME LAYOUT STYLES -->
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <script src="css/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+		<script src="js/jquery.cookie.js"	type="text/javascript"></script>	
+        <script src="css/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="css/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="css/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="css/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+		
+        <script src="css/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+      
+        <script src="css/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="css/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+        <script src="css/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        
+        <script src="css/assets/global/scripts/app.min.js" type="text/javascript"></script>
+        
+        <script src="css/assets/pages/scripts/login.min.js" type="text/javascript"></script>
+       
+        <script src="js/jsviews.js" type="text/javascript" ></script>
+        <script src="js/base.js" type="text/javascript"></script>	
+<style>
+ {
+	margin: 0;
+	padding: 0;
+}
+
+
+.loginBox {
+	width: 450px;
+	height: 300px;
+	padding: 0 20px;
+	border: 1px solid #fff;
+	color: #000;
+	margin-top: 30px;
+	border-radius: 8px;
+	background: white;
+	box-shadow: 0 0 15px #222;
+	background: -moz-linear-gradient(top, #fff, #efefef 8%);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#f6f6f6),
+		to(#f4f4f4));
+	font: 11px/1.5em 'Microsoft YaHei';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -310px;
+	margin-top: -205px;
+}
+
+.loginBox h2 {
+	height: 45px;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.loginBox .left {
+	border-right: 1px solid #ccc;
+	height: 100%;
+	padding-right: 20px;
+}
+
+.regBtn {
+	margin-top: 21px;
+}
+
+</style>
+
+</head>
+<body class=" login" style="background-image: url(image/background.png);" >
+
+       <div class="logo" >
+					<img src="image/logo.png" width="150px">
+		</div>
+	<div class="content" style="background-color: #435C72;border-radius: 15px!important;">
+      <h3 style="margin-top: 16px;margin-bottom: 18px;font-size: 23px;color: #ffffff;">南翔微网格</h3>
+		<form action="j_spring_security_check"  class="login-form"  method="post" id="loginForm" style="position: relative;">
+
+		      <input type="hidden" name="SPRING_REQUEST_KEY" value="0"><!-- 指定字段名并将该值设置为0,为类型一登录 -->
+
+					<div class="form-group" style="margin-bottom: 25px;position:relative;">
+                        <img src="image/yonghu.png" style="position:absolute;top: 10px;left: 10px;" alt="">
+						<input type="text" id="adminName" class="form-control input-sm" name="j_username" placeholder="用户名" style="padding-left: 35px;"
+							data-rule="required;length[6~15]" maxlength="15"  />
+					</div>
+					<div class="form-group" style="position:relative;">
+                        <img src="image/mima.png" style="position:absolute;top: 10px;left: 10px;" alt="">
+						<input type="password" id="adminPassword" class="form-control input-sm"  name="j_password" placeholder="密码" style="padding-left: 35px;"
+							data-rule="required;length[6~15]" maxlength="15" data-msg-rangelength="密码长度必须是6到15个字符" />
+					</div>
+					
+					
+				     <!-- 登录错误提示 -->
+					<p id="errorMessage" style="color: red;position: absolute;top: 100px;"></p>
+					<div class="form-actions" style="border-bottom: 0;padding: 25px 30px 0;">
+							<input type="button" value=" 登录 "  onclick="saveUserInfo()"  class="btn green uppercase" style="width: 100%;margin: 0 auto;font-size: 19px;font-weight: normal;">
+							<p  style="width: 100%;display: block; margin:35px auto 0;text-align: center;"><label class="rememberme check mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" checked="checked" name="remember" value="1" />记住用户名和密码
+                        <span></span>
+                    </label></p>
+                    <!-- <a href="javascript:;" id="forget-password" class="forget-password">忘记?</a> --> 
+					</div> 
+					 <!--<div class="create-account">
+                     <p>
+                        <a href="javascript:;" id="register-btn" class="uppercase">注册</a>
+                    </p>
+                </div>-->
+			<!-- /loginBox -->
+		</form>
+		
+		<!-- 找回密码 -->
+		 <form class="forget-form" action="index.html" method="post">
+                <h3 class="font-green">忘记密码 ?</h3>
+                <p> 请输入注册的邮箱地址 </p>
+                <div class="form-group">
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="邮箱" name="email" /> </div>
+                <div class="form-actions">
+                    <button type="button" id="back-btn" class="btn green btn-outline">返回</button>
+                    <button type="submit" class="btn btn-success uppercase pull-right">提交</button>
+                </div>
+            </form>
+            <!-- 注册 -->
+             <form class="register-form" action="index.html" method="post">
+                <h3 class="font-green">注册</h3>
+                <p class="hint">个人信息: </p>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">姓名</label>
+                    <input class="form-control placeholder-no-fix" type="text" placeholder="姓名" name="fullname" /> </div>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">邮箱</label>
+                    <input class="form-control placeholder-no-fix" type="text" placeholder="邮箱" name="email" /> </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">个人地址</label>
+                    <input class="form-control placeholder-no-fix" type="text" placeholder="个人地址" name="address" /> </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">居住城市</label>
+                    <input class="form-control placeholder-no-fix" type="text" placeholder="居住城市" name="city" /> </div>
+               
+                <p class="hint"> 进入账户信息中心: </p>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">账户名</label>
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="账户名" name="username" /> </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="密码" name="password" /> </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">请再次确认密码</label>
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="请再次确认密码" name="rpassword" /> </div>
+                <div class="form-group margin-top-20 margin-bottom-20">
+                    <label class="mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" name="tnc" /> 是否同意和
+                        <a href="javascript:;">服务条款 </a> 和
+                        <a href="javascript:;">个人隐私条件 </a>
+                        <span></span>
+                    </label>
+                  
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="register-back-btn" class="btn green btn-outline">返回</button>
+                    <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">提交</button>
+                </div>
+            </form>
+            <!-- END REGISTRATION FORM -->
+        </div>
+
+       <div class="copyright" style="position: fixed;bottom: 10px;left: 41%;margin: 0 auto;">Power by 嘉真网络科技 &copy; 2017-2019 All rights Reser ved</div>
+
+    <Script>
+	
+	//保存用户信息
+	function saveUserInfo() {
+		$("#errorMessage").html("");
+	    if ($("input[type='checkbox']").is(":checked")) {
+	        var userName = $("#adminName").val();
+	        var passWord = $("#adminPassword").val();	
+	        $.cookie("remember", "true", { expires: 7 }); // 存储一个带7天期限的 cookie
+	        $.cookie("userName", userName, { expires: 7 }); // 存储一个带7天期限的 cookie
+	        $.cookie("passWord", passWord, { expires: 7 }); // 存储一个带7天期限的 cookie
+	    }else {
+	        $.cookie("remember", "false", { expires: -1 });
+	        $.cookie("userName", '', { expires: -1 });
+	        $.cookie("passWord", '', { expires: -1 });
+	    }
+	    $("#loginForm").submit();
+	}
+	
+		$(function() {
+			$("#errorMessage").html("");
+			if(window.parent!=window){
+				window.parent.location.reload();
+			}
+			document.onkeydown =function(evt){
+				var evt = window.event?window.event:evt;
+				if (evt.keyCode==13) {
+					saveUserInfo();  
+			    　}
+			};
+			 var error=getUrlParam("login_error");
+			 console.log(error);
+			if(typeof(error) != "undefined" && error != null && error == "true"){
+				$("#errorMessage").html("用户名或密码错误!");
+				return;
+			}
+		    if ($.cookie("remember") == "true") {
+		    	$("#errorMessage").html("");
+		        $("#remember").attr("checked", true);
+		        $("#adminName").val($.cookie("userName"));
+		        $("#adminPassword").val($.cookie("passWord"));
+		    }
+		    $("#adminName").click(function () {
+		    	$("#errorMessage").html("");
+	        });
+		    $("#adminPassword").click(function () {
+		    	$("#errorMessage").html("");
+	        });
+		});
+	</Script>
+	<!-- /container -->
+</body>
+</html>

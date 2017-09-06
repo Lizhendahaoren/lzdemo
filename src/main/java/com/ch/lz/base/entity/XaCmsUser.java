@@ -47,8 +47,6 @@ public class XaCmsUser implements java.io.Serializable {
 
 	/** 用户描述. */
 	private String description;
-	
-	private String user_sessionId;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -61,14 +59,6 @@ public class XaCmsUser implements java.io.Serializable {
 		this.userId = userId;
 	}
 
-	@Column(name = "user_sessionId", nullable = false, length = 100)
-	public String getUser_sessionId() {
-		return user_sessionId;
-	}
-	public void setUser_sessionId(String user_sessionId) {
-		this.user_sessionId = user_sessionId;
-	}
-	
 	@Column(name = "user_name", nullable = false, length = 20)
 	public String getUserName() {
 		return userName;
@@ -131,7 +121,5 @@ public class XaCmsUser implements java.io.Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
 
 }
